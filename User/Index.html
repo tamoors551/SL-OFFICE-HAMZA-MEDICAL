@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Body Start -->
+
+    <div class="container form-group" style="border: 5px double black; margin-top: 20px; border-radius: 15px;">
+        <div class="row"
+            style=" background: linear-gradient(#044687, #033769 60%, rgb(4, 88, 139)); color: white; border-radius: 10px;">
+            <div class="col-md-12">
+                <center>
+                    <h1>Add User</h1>
+                </center>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+            </div>
+            <div class="col-md-4">
+                <label>Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter Username">
+            </div>
+            <div class="col-md-4">
+                <label>Password</label>
+                <input type="text" class="form-control" id="password" placeholder="Enter Password">
+            </div>
+            <div class="col-md-4">
+                <label>Contact</label>
+                <input type="number" class="form-control" id="userContact" placeholder="Enter User Contact" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="11">
+            </div>
+            <div class="col-md-4">
+                <label>CNIC</label>
+                <input type="number" class="form-control" id="userCNIC" placeholder="Enter User CNIC" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13">
+            </div>
+            <div class="col-md-4">
+                <label>Store Name</label>
+                <input type="text" class="form-control" id="storeName" placeholder="Enter Store Name">
+            </div>
+            <div class="col-md-4">
+                <label>Store Address</label>
+                <input type="text" class="form-control" id="storeAddress" placeholder="Enter Store Address">
+            </div>
+            <div class="col-md-4">
+                <label>Store Contact</label>
+                <input type="text" class="form-control" id="storeContact" placeholder="Enter Store Contact">
+            </div>
+            <div class="col-md-4">
+                <label>Store Logo</label>
+                <input type="file" class="form-control" id="storeLogo" accept="image/png">
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-3">
+                <button class="btn btn-success form-control" onclick="save()">+ Save User</button>
+            </div>
+            <div class="col-md-2 col-md-offset-2">
+                <button class="btn btn-primary form-control" onclick="location.href='../login/index.html'">Login</button>
+            </div>
+        </div><br>
+    </div>
+
+    <!-- Body End -->
+
+    <!-- JavaScript files -->
+    <script src="../bootstrap.min.js" defer></script>
+    <script src="../jquery-3.2.1.min.js" defer></script>
+    <script src="../sweetalert2@11.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+</body>
+
+</html>

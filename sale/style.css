@@ -1,0 +1,82 @@
+.navbar {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+.navbar a {
+    color: white;
+}
+.navbar > .navbar-nav li:hover li {
+    color: white !important;
+    background: linear-gradient(#033769, #044687 60%, #04519b) !important;
+}
+.dropdown-menu {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+.dropdown-menu a {
+    color: white !important;
+}
+.dropdown-menu a:hover {
+    background: linear-gradient(#033769, #044687 60%, #04519b);
+}
+.icon-bar {
+    background: white;
+}
+.navbar .container-fluid .navbar-collapse .nav li a:hover {
+    background: linear-gradient(#044687, #04519b 60%, #04619b);
+    color: white;
+}
+.navbar .container-fluid .navbar-collapse .nav li a:focus {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+    color: white;
+}
+.active {
+    background: linear-gradient(#044687, #033769 60%, rgb(4, 88, 139));
+    color: white;
+    font-size: 20px;
+}
+input[disabled].form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: text;
+}
+th {
+    background: black !important;
+    color: white !important;
+}
+.custom-table {
+    max-height: 65vh;
+    overflow-y: auto;
+}
+.custom-table2 {
+    max-height: 55vh;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 990px) {
+    .custom-table,
+    .custom-table2 {
+      max-height: 40vh !important;
+      overflow-y: auto;
+    }
+  }
+  
+
+.custom-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: black !important;
+    color: white !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #033769;
+    border-radius: 5px;
+}

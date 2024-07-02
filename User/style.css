@@ -1,0 +1,56 @@
+.navbar {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar>.navbar-nav li:hover li {
+    color: white !important;
+    background: linear-gradient(#033769, #044687 60%, #04519b) !important;
+}
+
+.dropdown-menu {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+
+.dropdown-menu a {
+    color: white !important;
+}
+
+.dropdown-menu a:hover {
+    background: linear-gradient(#033769, #044687 60%, #04519b);
+}
+
+.icon-bar {
+    background: white;
+}
+
+.navbar .container-fluid .navbar-collapse .nav li a:hover {
+    background: linear-gradient(#044687, #04519b 60%, #04619b);
+    color: white;
+}
+
+.navbar .container-fluid .navbar-collapse .nav li a:focus {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+    color: white;
+}
+
+.active {
+    background: linear-gradient(#044687, #033769 60%, rgb(4, 88, 139));
+    color: white;
+    font-size: 20px;
+}
+
+/* Expired row */
+.expired-color {
+    color: red;
+    /* Set color for expired items */
+}
+
+.not-expired-color {
+    color: darkcyan;
+    /* Set color for items that are not expired */
+}
+

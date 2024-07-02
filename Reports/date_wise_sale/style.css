@@ -1,0 +1,67 @@
+.navbar {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+.navbar a {
+    color: white;
+}
+.navbar > .navbar-nav li:hover li {
+    color: white !important;
+    background: linear-gradient(#033769, #044687 60%, #04519b) !important;
+}
+.dropdown-menu {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+.dropdown-menu a {
+    color: white !important;
+}
+.dropdown-menu a:hover {
+    background: linear-gradient(#033769, #044687 60%, #04519b);
+}
+.icon-bar {
+    background: white;
+}
+.navbar .container-fluid .navbar-collapse .nav li a:hover {
+    background: linear-gradient(#044687, #04519b 60%, #04619b);
+    color: white;
+}
+.navbar .container-fluid .navbar-collapse .nav li a:focus {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+    color: white;
+}
+.active {
+    background: linear-gradient(#044687, #033769 60%, rgb(4, 88, 139));
+    color: white;
+    font-size: 20px;
+}
+.container {
+    border: 3px double black;
+    background: #f1f1f1;
+    padding: 5px;
+    border-radius: 10px;
+}
+th {
+    background: black !important;
+    color: white !important;
+}
+input[disabled].form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: text;
+}
+.modal-fullscreen {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1050; /* Ensure the modal overlays everything */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.modal-fullscreen .modal-content {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+}

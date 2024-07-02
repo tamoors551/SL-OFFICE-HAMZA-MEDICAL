@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script src="../sweetalert2@11.js"></script>
+    <script src="script.js" defer></script>
+    <script src="../bootstrap.min.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar Starts -->
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand" id="store_name"
+                    style="color: white; font-size: 28px; text-shadow: 0 0 5px black;"><b>Store Name</b></span>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="../dashboard/index.html"><img src="../home.png" height="28px"> Home <span
+                                class="sr-only">(current)</span></a></li>
+                    <li><a href="../sale/index.html"><img src="../sale.png" height="25px"> Sale</a></li>
+                    <li class="active"><a href="../purchase/index.html"><img src="../purchase.png" height="25px"> Purchase</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false"><img src="../setup.png" height="25px"> Setup <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../setup/company/index.html"><img src="../company.png" height="25px">
+                                    Company</a></li>
+                            <li><a href="../setup/product/index.html"><img src="../product.png" height="25px">
+                                    Product</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false"><img src="../reports.png" height="25px"> Reports <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../Reports/expiry/index.html"><img src="../expiry.png" height="25px">
+                                    Expiry</a></li>
+                            <li><a href="../Reports/stock_report/index.html"><img src="../stock_report.png"
+                                        height="25px"> Stock Report</a></li>
+                            <li><a href="../Reports/invoice_wise_sale/index.html"><img src="../invoice.png"
+                                        height="25px"> Invoice Wise Sale</a></li>
+                            <li><a href="../Reports/date_wise_sale/index.html"><img src="../date.png" height="25px">
+                                    Date Wise Sale</a></li>
+                            <li><a href="../Reports/invoice_wise_purchase/index.html"><img src="../invoice.png"
+                                        height="25px"> Invoice Wise Purchase</a></li>
+                            <li><a href="../Reports/date_wise_purchase/index.html"><img src="../date.png" height="25px">
+                                    Date Wise Purchase</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" onclick="Exit()">Logout <img src="../logout.png" height="25px"></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- Navbar Ends -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Name</label>
+                        <input type="text" id="name" class="form-control readonly" disabled>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Quantity</label>
+                        <input type="number" id="quantity" class="form-control" onkeyup="add()">
+                    </div>
+                    <div class="col-md-2">
+                        <label>Cost Of Box</label>
+                        <input type="number" id="BoxCoast" class="form-control" oninput="preventNegative(event)"
+                            onkeyup="add4(); profit()" min="0">
+                    </div>
+                    <div class="col-md-2">
+                        <label>Sale Price Of Box</label>
+                        <input type="number" id="BoxPrice" class="form-control" oninput="preventNegative(event)"
+                            onkeyup="add3(); profit()">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Expiry</label>
+                        <input type="date" id="expiry" class="form-control">
+                    </div>
+                    <input type="text" id="profit" class="form-control" disabled style="display: none;">
+                    <input type="text" id="company" class="form-control" disabled style="display: none;">
+                    <div class="col-md-3">
+                        <label>Barcode</label>
+                        <input type="number" id="barcode" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Packing</label>
+                        <input type="number" id="packing" class="form-control" onkeyup="add()" disabled>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Cost Of Item</label>
+                        <input type="text" id="ItemCoast" class="form-control readonly" disabled>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Sale Price Of Item</label>
+                        <input type="number" id="ItemPrice" class="form-control readonly" disabled>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Total</label>
+                        <input type="text" id="total" class="form-control readonly" disabled>
+                    </div>
+                    <div class="col-md-12">
+                        <br>
+                        <button id="addButton" onclick="localSave()" class="btn btn-primary"
+                            style="width: 100%;">+Add</button>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <label>Search Product:</label>
+                    <input type="text" id="search" class="form-control" placeholder="Enter Product Name...">
+                </div>
+                <br>
+                <div class="row">
+                    <table id="dataTable" class="table table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Code</th>
+                                <th style="width: 20%;">Name</th>
+                                <th style="width: 20%;">Company</th>
+                                <th style="width: 15%;">Unit</th>
+                                <th style="width: 15%;">Packing</th>
+                                <th style="width: 10%;">Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row2">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Invoice #</label>
+                            <input type="number" class="form-control" id="invoice">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Sub-Total</label>
+                            <input type="text" class="form-control" id="subTotal" disabled>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Discount Rs.</label>
+                            <input type="number" class="form-control" value="00" id="discount" onkeyup="discount();"
+                                onfocus="clearDiscount(); checkDiscount()">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Net Total</label>
+                            <input type="text" class="form-control" id="netTotal" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%;">Name</th>
+                                <th style="width: 20%;">Quantity</th>
+                                <th style="width: 30%;">Coast</th>
+                                <th style="width: 20%;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody2">
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5">
+
+                        <button id="saveButton" class="btn btn-success form-control" onclick="Save()"><img src="save.png"
+                                height="25px">
+                            Save</button>
+                    </div>
+                </div>
+
+
+                <!-- Modal -->
+                <div class="row">
+
+                    <!-- Large modal -->
+                    <div class="col-md-6">
+                        <center>
+
+                            <button style="display: none;" id="btn1" type="button" class="btn btn-primary"
+                                data-toggle="modal" data-target=".bs-example-modal-lg"
+                                onclick="printModule1('module1')">Large modal</button>
+
+                        </center>
+
+                        <div id="module1" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                            aria-labelledby="myLargeModalLabel">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="container-fluid" style="border-bottom: 2px dashed;">
+                                        <div class="container"><br>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <img id="store_logo1" height="150px" style="float: right;">
+                                                    <h1>
+                                                        <span id="store_name1">Company Name</span>
+                                                    </h1>
+                                                    <h2>
+                                                        <span id="store_address1">Company Address</span>
+                                                    </h2>
+                                                    <h3>
+                                                        <span id="store_contact1">Company Contact</span>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div><br>
+                                        <div class="col-md-6">
+                                            <h3>
+                                                Invoice No. <b><span id="invoice_no1">Invoice</span></b>
+                                            </h3>
+                                        </div>
+
+                                        <table class="table" border="1" style="width: 100%; border-collapse: collapse;">
+                                            <thead>
+                                                <tr>
+                                                    <th
+                                                        style="background-color: black ; color: white !important;border: 1px solid black;">
+                                                        No.</th>
+                                                        <th
+                                                            style="background-color: black ; color: white !important;border: 1px solid black;">
+                                                            Name</th>
+                                                    <th
+                                                        style="background-color: black ; color: white !important;border: 1px solid black;">
+                                                        QTY.</th>
+                                                    <th
+                                                        style="background-color: black ; color: white !important;border: 1px solid black;">
+                                                        Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbody01" style="text-align: center;">
+                                                <!-- Your table body content goes here -->
+                                            </tbody>
+                                        </table>
+
+
+                                        <div class="col-md-12"
+                                            style="border-bottom: 1px solid gray; margin-top: 5px !important;">
+                                            <h4>Sub-Total <span style="float: right;">Rs.<b><span
+                                                            id="sub_total1"></span></b></span></h4>
+                                        </div>
+                                        <div class="col-md-12"
+                                            style="border-bottom: 1px solid gray; margin-top: 5px !important;">
+                                            <h4>Discount <span style="float: right;">Rs.<b><span
+                                                            id="discount1"></span></b></span></h4>
+                                        </div>
+                                        <div class="col-md-12"
+                                            style="border-bottom: 1px solid gray; margin-top: 5px !important;">
+                                            <h4>Net-Total <span style="float: right;">Rs.<b><span
+                                                            id="net_total1"></span></b></span></h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Small modal -->
+                    <div class="col-md-6">
+
+                        <center>
+
+                            <button onclick="printModule2('module2')" style="display: none;" id="btn2" type="button"
+                                class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small
+                                modal</button>
+                        </center>
+
+                        <div id="module2" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+                            aria-labelledby="mySmallModalLabel">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div style="margin: 0 auto; width: 80%;">
+                                        <br>
+                                        <div style="border-bottom: 2px solid;">
+                                            <h4>
+                                                <b><span id="store_name2">Company Name</span></b>
+                                                <img id="store_logo2" height="28px" style="float: right;">
+                                            </h4>
+                                            <h4 style="text-align: center;"><span id="store_address2">Company
+                                                    Address</span></h4>
+                                            <h5 style="text-align: center;"><span id="store_contact2">Company
+                                                    Contact</span></h5>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <h5>Invoice No. <b><span id="invoice_no2"></span></b></h5>
+                                            </div>
+                                        </div>
+                                        <table style="border-collapse: collapse; width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th style="border: 1px solid; padding: 8px;">Name</th>
+                                                    <th style="border: 1px solid; padding: 8px;">QTY.</th>
+                                                    <th style="border: 1px solid; padding: 8px;">Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbody02">
+
+                                            </tbody>
+                                        </table>
+                                        <div style="border-bottom: 1px solid grey;">
+                                            <div style="float: left; width: 70%;">
+                                                <h5>Sub-Total :</h5>
+                                            </div>
+                                            <div style="float: left; width: 30%;">
+                                                <h5>Rs.<b><span id="sub_total2"></span></b></h5>
+                                            </div>
+                                        </div>
+                                        <div style="border-bottom: 1px solid grey;">
+                                            <div style="float: left; width: 70%;">
+                                                <h5>Discount :</h5>
+                                            </div>
+                                            <div style="float: left; width: 30%;">
+                                                <h5>Rs.<b><span id="discount2"></span></b></h5>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div style="float: left; width: 70%;">
+                                                <h5>Net-Total :</h5>
+                                            </div>
+                                            <div style="float: left; width: 30%;">
+                                                <h5>Rs.<b><span id="net_total2"></span></b></h5>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <h5>Date : <b><span id="Invoice_Date"></span></b></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- ///////////////////////////////////////////////////// -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+</body>
+
+</html>
