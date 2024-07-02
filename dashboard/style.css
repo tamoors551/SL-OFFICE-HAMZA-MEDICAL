@@ -1,0 +1,93 @@
+.navbar {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar>.navbar-nav li:hover li {
+    color: white !important;
+    background: linear-gradient(#033769, #044687 60%, #04519b) !important;
+}
+
+.dropdown-menu {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+}
+
+.dropdown-menu a {
+    color: white !important;
+}
+
+.dropdown-menu a:hover {
+    background: linear-gradient(#033769, #044687 60%, #04519b);
+}
+
+.icon-bar {
+    background: white;
+}
+
+.navbar .container-fluid .navbar-collapse .nav li a:hover {
+    background: linear-gradient(#044687, #04519b 60%, #04619b);
+    color: white;
+}
+
+.navbar .container-fluid .navbar-collapse .nav li a:focus {
+    background: linear-gradient(#04519b, #044687 60%, #033769);
+    color: white;
+}
+
+.active {
+    background: linear-gradient(#044687, #033769 60%, rgb(4, 88, 139));
+    color: white;
+    font-size: 20px;
+}
+
+/* Expired row */
+.expired-color {
+    color: red;
+    /* Set color for expired items */
+}
+
+.not-expired-color {
+    color: darkcyan;
+    /* Set color for items that are not expired */
+}
+
+.col-md-4 {
+    max-height: 50vh !important;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #033769;
+    border-radius: 5px;
+}
+@media (min-width: 991px) {
+    .col-md-4 {
+        height: 50vh !important;
+    }
+}
+/* Ensure the canvas container fills its parent and maintains aspect ratio */
+/* Ensure the canvas container fills its parent and maintains aspect ratio */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* 4:3 aspect ratio (adjust as needed) */
+}
+
+/* Style the canvas to fill its container */
+#saleChart {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

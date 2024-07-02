@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar Starts -->
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand" id="store_name"
+                    style="color: white; font-size: 28px; text-shadow: 0 0 5px black;"><b>Store Name</b></span>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-center">
+                    <li class="active"><a href="./index.html"><img src="../home.png" height="28px"> Home <span
+                                class="sr-only">(current)</span></a></li>
+                    <li><a href="../sale/index.html"><img src="../sale.png" height="25px"> Sale</a></li>
+                    <li><a href="../purchase/index.html"><img src="../purchase.png" height="25px"> Purchase</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false"><img src="../setup.png" height="25px"> Setup <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../setup/company/index.html"><img src="../company.png" height="25px">
+                                    Company</a></li>
+                            <li><a href="../setup/product/index.html"><img src="../product.png" height="25px">
+                                    Product</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false"><img src="../reports.png" height="25px"> Reports <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../Reports/expiry/index.html"><img src="../expiry.png" height="25px">
+                                    Expiry</a></li>
+                            <li><a href="../Reports/stock_report/index.html"><img src="../stock_report.png"
+                                        height="25px"> Stock Report</a></li>
+                            <li><a href="../Reports/invoice_wise_sale/index.html"><img src="../invoice.png"
+                                        height="25px"> Invoice Wise Sale</a></li>
+                            <li><a href="../Reports/date_wise_sale/index.html"><img src="../date.png" height="25px">
+                                    Date Wise Sale</a></li>
+                            <li><a href="../Reports/invoice_wise_purchase/index.html"><img src="../invoice.png"
+                                        height="25px"> Invoice Wise Purchase</a></li>
+                            <li><a href="../Reports/date_wise_purchase/index.html"><img src="../date.png" height="25px">
+                                    Date Wise Purchase</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" onclick="Exit()">Logout <img src="../logout.png" height="25px"></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- Navbar Ends -->
+
+    <!-- Body Start -->
+
+    <div class="container-fluid">
+        <!-- Upper Half -->
+        <div class="row">
+            <!--  -->
+            <div class="col-md-4" style=" border: 1px solid black;">
+                <div class="row"
+                    style="background: linear-gradient(#033769, #044687 60%, #04519b) !important; color: white;">
+                    <h2>Today's Customers</h2>
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-responsive">
+                        <thead style="background-color: black !important; color: white !important;">
+                            <tr>
+                                <th style="width: 30%;">Name</th>
+                                <th style="width: 40%;">Cell</th>
+                                <th style="width: 30%;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="costumer_table">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-md-4" style=" border: 1px solid black;">
+                <div class="row"
+                    style="background: linear-gradient(#033769, #044687 60%, #04519b) !important; color: white;">
+                    <h2>Less Stock</h2>
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-responsive">
+                        <thead style="background-color: black !important; color: white !important;">
+                            <tr>
+                                <th style="width: 30%;">Name</th>
+                                <th style="width: 40%;">Company</th>
+                                <th style="width: 30%;">Stock Left</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stock_table">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-md-4" style=" border: 1px solid black;">
+                <div class="row"
+                    style="background: linear-gradient(#033769, #044687 60%, #04519b) !important; color: white;">
+                    <h2>Stock Near To Expiry</h2>
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-responsive">
+                        <thead style="background-color: black !important; color: white !important;">
+                            <tr>
+                                <th style="width: 30%;">Name</th>
+                                <th style="width: 20%;">Stock</th>
+                                <th style="width: 30%;">Expiry Date</th>
+                                <th style="width: 20%;">Days Left</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expiry_table">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+        <!-- Lower Half -->
+        <div class="row">
+            <div class="col-md-12" id="saleGraphRow">
+                <div class="chart-container">
+                    <canvas id="saleChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </div>
+
+    <!-- Body End -->
+
+    <!-- JavaScript files -->
+    <script src="../bootstrap.min.js" defer></script>
+    <script src="../jquery-3.2.1.min.js" defer></script>
+    <script src="../sweetalert2@11.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+</body>
+
+</html>
